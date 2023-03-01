@@ -1,0 +1,118 @@
+.content-container {
+    position: relative;
+
+    .content {
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        position: fixed;
+        display: inline-block;
+        width: 300px;
+        height: 100vh;
+        
+        .visible {
+        opacity: 0;
+        }
+        
+
+        .main-container {
+
+            display: flex;
+            height: 100vh;
+            width: 100%;
+
+
+            .container-content-menu {
+                
+                width: 100%;
+            }
+
+            .btn-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: none;
+                cursor: pointer;
+
+                .btn-content {
+                    width: 40px;
+                    height: 100vh;
+                }
+            }
+
+            .container-profile {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: 10px;
+                flex-direction: column;
+                margin-top: 20px;
+                gap: 20px;
+                width: 220px;
+
+                .profile-img {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    margin-left: 10px;
+                }
+
+                .profile-name {
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-left: 10px;
+                }
+            }
+
+            .links-content {
+                display: flex;
+                gap: 20px;
+                margin-top: 20px;
+                margin-left: 30px;
+                width: 192px;
+                padding: 5px;
+                height: 35px;
+                border-radius: 10px;
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                }
+            }
+
+            .icon-content {
+                cursor: pointer;
+                width: 30px;
+                border-radius: 20px;
+            }
+
+
+            .topics-section {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 200px;
+                gap: 10px;
+                border-radius: 5px;
+                margin: 40px auto;
+
+
+                .topic {
+                    width: 200px;
+                    padding: 5px;   
+
+                    .topic-title {
+                        margin-left: 20px;
+                        font-weight: bold;
+                    }
+
+                    
+                }
+
+                .btn-theme {
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+}

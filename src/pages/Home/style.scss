@@ -1,0 +1,48 @@
+.container-main {
+    
+    position: relative;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: auto;
+    background-size: cover;
+    // background-image: url('/background-dark.jpg');
+
+    .menu-container {
+        margin-right: 20px;
+    }
+
+    .home-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: calc(100vh - 130px);
+        margin-top: 130px;
+        margin-left: 320px;
+
+        .title-typical {
+            display: flex;
+            overflow: hidden;
+
+            .typical-container {
+                font-size: 60px;
+                font-family: var(--title-font-family);
+                margin-bottom: 20px;
+                margin-left: 10px;
+            }
+
+            .title {
+                font-size: 60px;
+                font-family: var(--title-font-family);
+                margin-bottom: 20px;
+            }
+        }
+
+        span {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 15px;
+        }
+    }
+}

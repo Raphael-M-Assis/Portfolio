@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color: white;
+    border: none;
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}
+
+:root {
+    //dark theme color palette
+    --primary-color-dark: rgb(5, 13, 14);
+    --secondary-color-dark: rgba(24, 23, 20, 0.932);
+    --tertiary-color-dark: rgb(0, 7, 8);
+    --quad-color-dark: rgb(0, 0, 0);
+
+    //light theme color palette
+    --primary-color-light: rgb(19, 22, 61);
+    --secondary-color-light: rgba(23, 40, 95, 0.932);
+    --tertiary-color-light: rgb(22, 19, 94);
+    --quad-color-light: rgb(5, 13, 14);
+
+    //font-family
+    --title-font-family: 'Times New Roman', Times, serif;
+}
