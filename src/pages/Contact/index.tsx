@@ -1,5 +1,6 @@
 import React from 'react'
 import Menu from '../../components/Menu';
+import SendEmail from '../../components/SendEmail';
 import './style.scss';
 
 const Contact = () => {
@@ -13,6 +14,7 @@ const Contact = () => {
             <div className='container-content-contact'>
                 <h1 className='contact-title'>Contato:</h1>
                 <h2 className='contact-description'>Ainda em construção</h2>
+                <SendEmail />
             </div>
         </div>
     </div>

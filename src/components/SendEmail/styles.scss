@@ -1,0 +1,55 @@
+.contact-form {
+    position: fixed;
+    width: 100vh;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    box-sizing: border-box;            
+
+    .form-topic {
+        margin-top: 15px;
+        font-size: 20px;
+        color: white;
+    }
+
+    .form-input {
+        color: black;
+        height: 30px;
+        width: 400px;
+        margin-top: 5px;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+
+    .form-textarea {
+        width: 400px;
+        margin-top: 5px;
+        min-height: 100px;
+        color: black;
+        border-radius: 5px;
+    }
+
+    .form-submit {
+        width: 400px;
+        margin-top: 5px;
+        border: 1px solid white;
+        background-color: var(--tertiary-color-light);
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+
+    .footer-message {
+        width: 400px;
+        text-align: center;
+        font-size: 20px;
+        margin-top: 10px;
+        color: white;
+    }
+}
