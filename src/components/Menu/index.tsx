@@ -21,16 +21,21 @@ import Theme from '../Theme';
 
 const Menu = () => {
     const [home, setHome] = useState<Boolean>(true);
+    const content = document.querySelector('.content') as HTMLElement;
+    const contentWork = document.querySelector('.content-work') as HTMLElement;
 
-    useEffect(() => {
-        //making content visible when the menu is loaded
-        const content = document.querySelector('.content') as HTMLElement;
-        content && (content.style.opacity = '0.5');
-        content && (content.style.opacity = '1');
 
-    }, []);
+
+    // useEffect(() => {
+    //     const home = localStorage.getItem('home');
+    //     if (home) {
+    //         setHome(JSON.parse(home));
+    //     }
+    // }, []);
 
     function changeMenu() {
+        //grava no localstoraged
+        localStorage.setItem('home', JSON.stringify(!home));
         setHome(!home);
 
         const theme = localStorage.getItem('theme') as 'Dark' | 'Light';

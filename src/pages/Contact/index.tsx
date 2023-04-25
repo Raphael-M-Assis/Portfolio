@@ -11,10 +11,14 @@ const Contact = () => {
                 <Menu />
             </div>
             
-            <div className='container-content-contact'>
-                <h1 className='contact-title'>Contato:</h1>
-                <h2 className='contact-description'>Ainda em construção</h2>
+            <div className="content-work">
+              <div className='container-content-contact'>
+                <div className='content'>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam eaque ea dicta corporis, magni earum ex illum vitae, iure sed veritatis quod dignissimos fuga fugit? Deleniti quod sapiente officia expedita!</p>
+                </div>
                 <SendEmail />
+            </div>
+
             </div>
         </div>
     </div>

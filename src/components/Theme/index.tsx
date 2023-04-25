@@ -1,6 +1,7 @@
 import { ChangeHistoryOutlined } from '@material-ui/icons';
 import React, { useEffect, useState } from 'react'
 import './style.scss'
+import { Switch } from '@mui/material';
 
 type ThemeType = {
     theme: 'Dark' | 'Light';
@@ -50,12 +51,11 @@ const Theme = () => {
         localStorage.setItem('theme', theme === 'Dark' ? 'Light' : 'Dark');
     }
 
-    return (
+    return (    
         <div className="theme">
-            <span>Para usar o tema {theme === 'Dark' ? 'Light' : 'Dark'} </span>
-            <button onClick={changeTheme} className='btn-change-theme'>Clique Aqui
-            </button>
-        </div>
+            <span>Habilitar tema {theme === 'Dark' ? 'Light' : 'Dark'} </span>
+            <Switch  className='switch-theme' onChange={changeTheme} checked={theme === 'Dark' ? true : false}/>            
+        </div>        
     )
 }
 
