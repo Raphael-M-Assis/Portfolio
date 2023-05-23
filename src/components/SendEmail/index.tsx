@@ -1,58 +1,51 @@
 import React, { useRef } from 'react';
 import './styles.scss';
-import emailjs from '@emailjs/browser';
-import { useState } from 'react';
-import { useContext } from "react";
+import emailjs from 'emailjs-com';
+import { useForm } from 'react-hook-form';
 
 const SendEmail = () => {
-    const form = useRef<HTMLFormElement>(null);
-    const [done, setDone] = useState(false);
+  const form = useRef<HTMLFormElement>(null);
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    function inputClear() {
-        const input = document.querySelectorAll('input');
-        const textarea = document.querySelectorAll('textarea');
-
-        input.forEach((item) => {
-            item.value = '';
-        });
-
-        textarea.forEach((item) => {
-            item.value = '';
+  const sendEmail = handleSubmit(() => {
+    if (form.current) {
+      emailjs
+        .sendForm('service_gmailMessageRM', 'template_ikqqo87', form.current, '1i5gLVxFRlX-z-9ES')
+        .then((result) => {
+          console.log(result.text);
+          reset(); // Limpa o formulário
+        })
+        .catch((error) => {
+          console.log(error.text);
         });
     }
+  });
+  
 
-    const sendEmail = (e: any) => {
-        e.preventDefault();
+  return (
+    <div>
+      <div>
+        <form ref={form} onSubmit={sendEmail}>
+          <div className='contact-form'>
+            <label className='form-topic'>Nome</label>
+            <input className='form-input' type="text" {...register('user_name', { required: true })} />
+            {errors.user_name && <span className="error-message">Campo obrigatório</span>}
 
-        form.current && (emailjs.sendForm('service_gmailMessageRM', 'template_ikqqo87', form.current, '1i5gLVxFRlX-z-9ES'))
-        .then((result) => {
-            console.log(result.text);
-            setDone(true);
-        }, (error) => {
-            console.log(error.text);
-        });
+            <label className='form-topic'>Email</label>
+            <input className='form-input' type="email" {...register('user_email', { required: true, pattern: /^\S+@\S+$/i })} />
+            {errors.user_email && errors.user_email.type === 'required' && <span className="error-message">Campo obrigatório</span>}
+            {errors.user_email && errors.user_email.type === 'pattern' && <span className="error-message">Digite um email válido</span>}
 
-        inputClear();
-    };
+            <label className='form-topic'>Digite sua mensagem</label>
+            <textarea className='form-textarea' {...register('message', { required: true })}></textarea>
+            {errors.message && <span className="error-message">Campo obrigatório</span>}
 
-    return (
-        <div>
-            <div>
-                <form ref={form} onSubmit={sendEmail}>
-                    <div className='contact-form'>
-                        <label className='form-topic'>Nome</label>
-                        <input className='form-input' type="text" name="user_name"/>
-                        <label className='form-topic'>Email</label>
-                        <input className='form-input' type="email" name="user_email"/>
-                        <label className='form-topic'>Digite sua mensagem</label>
-                        <textarea className='form-textarea' name="message"></textarea>
-                        <button className='form-submit' type="submit">Enviar</button>
-                        <span className='footer-message'>{done && "Obrigado por entrar em contato!"}</span>
-                    </div>
-                </form>
-            </div>
-        </div>
-    );
+            <button className='form-submit' type="submit">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 };
 
 export default SendEmail;
