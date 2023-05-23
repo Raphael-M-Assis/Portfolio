@@ -6,8 +6,8 @@ import './style.scss';
 const Contact = () => {
   return (
     <div className="container-main">
+        <Menu />
         <div className='menu-container-form'>
-            <Menu />
             <div className='content'>
                 <div className='home-container-form'>
                    <SendEmail/>
