@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './style.scss'
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -24,14 +24,6 @@ const Menu = () => {
     const content = document.querySelector('.content') as HTMLElement;
     const contentWork = document.querySelector('.content-work') as HTMLElement;
 
-
-
-    // useEffect(() => {
-    //     const home = localStorage.getItem('home');
-    //     if (home) {
-    //         setHome(JSON.parse(home));
-    //     }
-    // }, []);
 
     function changeMenu() {
         //grava no localstoraged

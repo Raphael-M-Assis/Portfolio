@@ -6,14 +6,15 @@ import { useForm } from 'react-hook-form';
 const SendEmail = () => {
   const form = useRef<HTMLFormElement>(null);
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const [isSent, setIsSent] = React.useState(false);
 
   const sendEmail = handleSubmit(() => {
     if (form.current) {
       emailjs
         .sendForm('service_gmailMessageRM', 'template_ikqqo87', form.current, '1i5gLVxFRlX-z-9ES')
         .then((result) => {
-          console.log(result.text);
           reset(); // Limpa o formulário
+          setIsSent(prev => !prev)
         })
         .catch((error) => {
           console.log(error.text);
@@ -27,6 +28,7 @@ const SendEmail = () => {
       <div>
         <form ref={form} onSubmit={sendEmail}>
           <div className='contact-form'>
+            <h1>Envie aqui uma Sugestão!</h1>
             <label className='form-topic'>Nome</label>
             <input className='form-input' type="text" {...register('user_name', { required: true })} />
             {errors.user_name && <span className="error-message">Campo obrigatório</span>}
@@ -41,6 +43,12 @@ const SendEmail = () => {
             {errors.message && <span className="error-message">Campo obrigatório</span>}
 
             <button className='form-submit' type="submit">Enviar</button>
+            {isSent && (
+                <>
+                    <span className='footer-message-success'>{"Mensagem enviada com Sucesso"}</span>
+                    <span className='footer-message'>{"Obrigado por entrar em contato!"}</span>
+                </>
+            )}
           </div>
         </form>
       </div>
